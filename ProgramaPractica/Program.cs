@@ -28,4 +28,6 @@
  */
 
 Console.WriteLine("Digita tu nombre");
-string name = string.Empty;
+string nombre = string.Empty;
+Console.WriteLine("Digita tu apellido");
+string apellido = string.Empty;
