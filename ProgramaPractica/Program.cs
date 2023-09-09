@@ -27,9 +27,80 @@
  
  */
 
-Console.WriteLine("Digita tu nombre");
-string nombre = string.Empty;
-Console.WriteLine("Digita tu apellido");
-string apellido = string.Empty;
+using ProgramaPractica.ArchivosProgramaPractica;
 
-//test
+Console.Write("Digita tu nombre ");
+string name = Console.ReadLine();
+Console.Write("Digita tu apellido ");
+string lastName = Console.ReadLine();
+string fullName = name + " " + lastName;
+Console.WriteLine("Indica tu sexo M/F");
+char sexo = Convert.ToChar(Console.ReadLine());
+if (sexo != 'M')
+{
+    Console.WriteLine("El valor debe ser Masculino (M) Femenino (F)");
+}
+else if(sexo != 'F')
+{
+    Console.WriteLine("El valor debe ser Masculino (M) Femenino (F)");
+}
+Console.WriteLine("Digita tu edad");
+int age = Convert.ToInt32(Console.ReadLine());
+if (age < 18)
+{
+    Console.WriteLine("Lo siento, no puedes acceder al sistema");
+}
+else if (age >= 18)
+{
+    if (sexo == 'M')
+    {
+        Console.WriteLine($"Bienvenido al programa");
+    }
+    else { Console.WriteLine($"Bienvenida al programa");
+    }
+}
+
+Console.WriteLine("Bienvenidos a la Calculadora Espacial!!!");
+
+FuncionesCalculadora funcionesCalculadora = new FuncionesCalculadora();
+
+{
+    Console.Write($"{fullName} Ingrese el primer número: ");
+    int numero1 = Convert.ToInt32(Console.ReadLine());
+
+    Console.Write($"{fullName} Ingrese el segundo número: ");
+    int numero2 = Convert.ToInt32(Console.ReadLine());
+
+    Console.Write("Ingrese el operador ((S) para suma, (R) para resta, (M) para multiplicar, (d) para división), (p) para Potencia: ");
+    char operador = Convert.ToChar(Console.ReadLine());
+
+    int resultado = 0;
+
+    if (operador == 'S')
+    {
+        resultado = funcionesCalculadora.Sumar(numero1, numero2);
+    }
+    else if (operador == 'R')
+    {
+        resultado = funcionesCalculadora.Restar(numero1, numero2);
+    }
+    else if (operador == 'M')
+    {
+        resultado = funcionesCalculadora.multiplicar(numero1, numero2);
+    }
+    else if (operador == 'D')
+    {
+        resultado = funcionesCalculadora.Division(numero1, numero2);
+    }
+    else if (operador == 'P')
+    {
+        resultado = funcionesCalculadora.Potencia(numero1, numero2);
+    }
+    else
+    {
+        Console.WriteLine("Operación no válida.");
+        return;
+    }
+
+    Console.WriteLine($"{fullName} El resultado es: {resultado} ");
+}
