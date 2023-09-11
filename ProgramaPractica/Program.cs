@@ -61,7 +61,7 @@ if (sexo == 'M' || sexo == 'F')
 else
 {
     Console.WriteLine("Sexo Invalido (M) (F). Vuelva a iniciar.");
-    returnGra;
+    return;
 }
 FuncionesCalculadora funcionesCalculadora = new FuncionesCalculadora();
 
