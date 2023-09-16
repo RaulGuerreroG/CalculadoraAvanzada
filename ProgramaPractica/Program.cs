@@ -28,80 +28,114 @@
  */
 
 using ProgramaPractica.ArchivosProgramaPractica;
+string name = "";
+string lastName = "";
+string gender;
+int age = 0;
 
-Console.Write("Digita tu nombre ");
-string name = Console.ReadLine();
-Console.Write("Digita tu apellido ");
-string lastName = Console.ReadLine();
-string fullName = name + " " + lastName;
-Console.WriteLine("Indica tu sexo M/F");
-char sexo = Convert.ToChar(Console.ReadLine());
-if (sexo == 'M' || sexo == 'F')
+
+do
 {
-    Console.WriteLine("Digita tu edad");
-    int age = Convert.ToInt32(Console.ReadLine());
-    if (age < 18)
+    Console.Write("Digita tu nombre: ");
+    name = Console.ReadLine();
+    if (string.IsNullOrEmpty(name))
     {
-        Console.WriteLine("Lo siento, no puedes acceder al sistema");
+        Console.WriteLine("El nombre no puede estar vacio");
     }
-    else if (age >= 18)
+
+} while (string.IsNullOrEmpty(name));
+
+do
+{
+    Console.Write("Digita tu apellido: ");
+    lastName = Console.ReadLine();
+    if (string.IsNullOrEmpty(lastName))
     {
-        if (sexo == 'M')
-        {
-            Console.WriteLine($"Bienvenido al programa");
-        }
-        else
-        {
-            Console.WriteLine($"Bienvenida al programa");
-        }
+        Console.WriteLine("El apellido no puede estar vacio");
     }
-    Console.WriteLine("Bienvenidos a la Calculadora Espacial!!!");
+
+} while (string.IsNullOrEmpty(lastName));
+
+string fullName = name.ToUpper() + " " + lastName.ToUpper();
+do
+{
+    Console.Write("Selecciona tu sexo M/F ");
+    gender = Console.ReadLine();
+    gender = gender.ToLower();
+
+    if (gender != "f" && gender != "m")
+    {
+       Console.WriteLine("El sexo es incorrecto. Debes seleccionar 'M' o 'F'.");
+    }
+
+} while (gender != "f" && gender != "m");
+
+do
+{
+    Console.Write("Introduce tu edad: ");
+    if (!int.TryParse(Console.ReadLine(), out age) || age <= 0)
+    {
+        Console.WriteLine("Edad incorrecta. Debe ser un número mayor que cero.");
+    }
+
+} while (age <= 0);
+if(age < 18)
+{
+    Console.WriteLine("No tienes edad suficiente para utilizar este sistema.");
+}    
+else if (age >= 18 && gender == "m")
+{
+    Console.WriteLine($"Bienvenido {fullName}");
+}
+else if (age >= 18 && gender == "f")
+{
+    Console.WriteLine($"Bienvenida {fullName}");
 }
 
-else
-{
-    Console.WriteLine("Sexo Invalido (M) (F). Vuelva a iniciar.");
-    return;
-}
-FuncionesCalculadora funcionesCalculadora = new FuncionesCalculadora();
+//else
+//{
+//    Console.WriteLine("Sexo Invalido (M) (F). Vuelva a iniciar.");
+//    return;
+//}
+//FuncionesCalculadora funcionesCalculadora = new FuncionesCalculadora();
 
-{
-    Console.Write($"{fullName} Ingrese el primer número: ");
-    int numero1 = Convert.ToInt32(Console.ReadLine());
+//{
+//    Console.Write($"{fullName} Ingrese el primer número: ");
+//    int numero1 = Convert.ToInt32(Console.ReadLine());
 
-    Console.Write($"{fullName} Ingrese el segundo número: ");
-    int numero2 = Convert.ToInt32(Console.ReadLine());
+//    Console.Write($"{fullName} Ingrese el segundo número: ");
+//    int numero2 = Convert.ToInt32(Console.ReadLine());
 
-    Console.Write("Ingrese el operador ((S) para suma, (R) para resta, (M) para multiplicar, (D) para división), (p) para Potencia: ");
-    char operador = Convert.ToChar(Console.ReadLine());
+//    Console.Write("Ingrese el operador ((S) para suma, (R) para resta, (M) para multiplicar, (D) para división), (p) para Potencia: ");
+//    char operador = Convert.ToChar(Console.ReadLine());
 
-    int resultado = 0;
+//    int resultado = 0;
 
-    if (operador == 'S')
-    {
-        resultado = funcionesCalculadora.Sumar(numero1, numero2);
-    }
-    else if (operador == 'R')
-    {
-        resultado = funcionesCalculadora.Restar(numero1, numero2);
-    }
-    else if (operador == 'M')
-    {
-        resultado = funcionesCalculadora.multiplicar(numero1, numero2);
-    }
-    else if (operador == 'D')
-    {
-        resultado = funcionesCalculadora.Division(numero1, numero2);
-    }
-    else if (operador == 'P')
-    {
-        resultado = funcionesCalculadora.Potencia(numero1, numero2);
-    }
-    else
-    {
-        Console.WriteLine("Operación no válida.");
-        return;
-    }
+//    if (operador == 'S')
+//    {
+//        resultado = funcionesCalculadora.Sumar(numero1, numero2);
+//    }
+//    else if (operador == 'R')
+//    {
+//        resultado = funcionesCalculadora.Restar(numero1, numero2);
+//    }
+//    else if (operador == 'M')
+//    {
+//        resultado = funcionesCalculadora.multiplicar(numero1, numero2);
+//    }
+//    else if (operador == 'D')
+//    {
+//        resultado = funcionesCalculadora.Division(numero1, numero2);
+//    }
+//    else if (operador == 'P')
+//    {
+//        resultado = funcionesCalculadora.Potencia(numero1, numero2);
+//    }
+//    else
+//    {
+//        Console.WriteLine("Operación no válida.");
+//        return;
+//    }
 
-    Console.WriteLine($"{fullName} El resultado es: {resultado} ");
-}
+//    Console.WriteLine($"{fullName} El resultado es: {resultado} ");
+//}
