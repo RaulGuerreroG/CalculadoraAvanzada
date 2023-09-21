@@ -117,10 +117,9 @@ namespace ProgramaPractica.ArchivosProgramaPractica
             Console.Write("Ingrese la opción deseada: ");
 
             char opcion = Console.ReadKey().KeyChar;
-            Console.WriteLine(); // Nueva línea para dar formato
+            Console.WriteLine();
             int resultado = 0;
 
-            // Realizar la operación seleccionada utilizando la clase FuncionesCalculadora
             switch (opcion)
             {
                 case 's':

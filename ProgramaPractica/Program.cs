@@ -21,10 +21,7 @@
 
     Por ultimo: Mostrar en pantalla el resultado final, diciendole:
     Usuario: El resultado de la operacion X es Y
- 
- 
- 
- 
+
  */
 
 using ProgramaPractica.ArchivosProgramaPractica;
